@@ -7,7 +7,6 @@
 
   <!-- Tailwind CSS -->
   <script src="https://cdn.tailwindcss.com"></script>
-
   <!-- tsParticles -->
   <script src="https://cdn.jsdelivr.net/npm/tsparticles@2/tsparticles.bundle.min.js"></script>
 
@@ -15,56 +14,136 @@
     html {
       scroll-behavior: smooth;
     }
+    @keyframes fade-in {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .animate-fade-in {
+      animation: fade-in 1s ease-out forwards;
+    }
+    .glass {
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(6px);
+      -webkit-backdrop-filter: blur(6px);
+      border-radius: 1rem;
+      padding: 2rem;
+      box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    }
   </style>
 </head>
-<body class="bg-black text-white font-sans relative overflow-hidden">
+<body class="snap-y snap-mandatory h-screen overflow-y-scroll bg-black text-white font-sans relative overflow-hidden">
 
-  <!-- Red Particles with Strings to Mouse -->
-  <div id="tsparticles" class="absolute top-0 left-0 w-full h-full -z-10"></div>
+  <!-- Particle Background -->
+  <div id="tsparticles" class="fixed top-0 left-0 w-full h-full -z-10"></div>
+
+  <!-- Social Icons Top-Left -->
+  <div class="absolute top-6 left-6 z-10">
+    <div class="glass flex gap-4 p-3">
+      <a href="https://www.instagram.com/skrillrexz/" target="_blank" aria-label="Instagram">
+        <svg xmlns="http://www.w3.org/2000/svg" class="w-7 h-7 stroke-pink-500 hover:stroke-white transition" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 2C4.79086 2 3 3.79086 3 6V18C3 20.2091 4.79086 22 7 22H17C19.2091 22 21 20.2091 21 18V6C21 3.79086 19.2091 2 17 2H7Z M16 11.37C16.03 13.2 14.66 14.89 12.84 15.06C11.01 15.24 9.34 13.87 9.15 12.04C8.97 10.21 10.34 8.54 12.17 8.35C13.99 8.17 15.67 9.54 15.86 11.37Z M17.5 6.5H17.51" />
+        </svg>
+      </a>
+      <a href="https://x.com/Srikyz" target="_blank" aria-label="X">
+  <svg xmlns="http://www.w3.org/2000/svg" class="w-7 h-7 stroke-cyan-400 hover:stroke-white transition" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4l16 16M20 4L4 20" />
+  </svg>
+</a>
+      <a href="https://github.com/Srikyz" target="_blank" aria-label="GitHub">
+        <svg xmlns="http://www.w3.org/2000/svg" class="w-7 h-7 stroke-purple-400 hover:stroke-white transition" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 1C5.925 1 1 5.925 1 12C1 17.075 4.875 21.175 9.75 22.5C10.25 22.575 10.425 22.275 10.425 22.025C10.425 21.8 10.425 21.125 10.425 20.3C7 20.875 6.25 18.925 6.25 18.925C5.75 17.775 5 17.5 5 17.5C4 16.875 5.075 16.875 5.075 16.875C6.175 16.95 6.75 18.025 6.75 18.025C7.75 19.725 9.4 19.25 10.075 18.95C10.15 18.2 10.5 17.75 10.9 17.475C8.05 17.2 5.075 16.175 5.075 11.55C5.075 10.275 5.55 9.275 6.35 8.5C6.225 8.2 5.825 6.925 6.475 5.25C6.475 5.25 7.4 4.95 10.425 6.55C11.325 6.3 12.3 6.175 13.275 6.175C14.25 6.175 15.225 6.3 16.125 6.55C19.15 4.95 20.075 5.25 20.075 5.25C20.725 6.925 20.325 8.2 20.2 8.5C21 9.275 21.475 10.275 21.475 11.55C21.475 16.2 18.5 17.2 15.65 17.475C16.175 17.85 16.65 18.7 16.65 20.05C16.65 21.875 16.65 23.125 16.65 23.55C16.65 23.8 16.825 24.125 17.325 24.05C22.2 22.75 26 17.075 26 12C26 5.925 21.075 1 15 1H12Z" />
+        </svg>
+      </a>
+          <a href="https://www.linkedin.com/in/sriram-subramanian-621959301/" target="_blank" aria-label="LinkedIn">
+        <svg xmlns="http://www.w3.org/2000/svg" class="w-7 h-7 stroke-blue-400 hover:stroke-white transition" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-4 0v7h-4v-7a6 6 0 016-6zM2 9h4v12H2zM4 4a2 2 0 110 4 2 2 0 010-4z" />
+        </svg>
+      </a>
+    </div>
+  </div>
+
+  <!-- Top-right nav or button -->
+  <div class="absolute top-6 right-6 z-10 flex gap-4">
+    <a href="#about" class="bg-gradient-to-r from-purple-500 to-indigo-400 px-4 py-2 rounded-md text-white font-semibold shadow-md hover:opacity-90 transition">
+      About Me
+    </a>
+    <a href="#contact" class="bg-gradient-to-r from-yellow-400 to-pink-500 px-4 py-2 rounded-md text-white font-semibold shadow-md hover:opacity-90 transition">
+      Contact Me
+    </a>
+  </div>
 
   <!-- Hero Section -->
-  <section class="min-h-screen flex flex-col justify-center items-center px-6 text-center">
-    <h1 class="text-4xl md:text-6xl font-bold mb-4">
-      Hi, I'm <span class="text-transparent bg-clip-text bg-gradient-to-r from-red-500 to-pink-400">Srikyz</span>
-    </h1>
+  <section class="min-h-screen snap-start flex flex-col justify-center items-center px-6 text-center">
+    <div class="glass">
+      <h1 class="text-4xl md:text-6xl font-bold mb-4 animate-fade-in">
+        Hi, I'm <span class="text-transparent bg-clip-text bg-gradient-to-r from-green-500 to-pink-400">Srikyz</span>
+      </h1>
 
-    <h2 class="text-xl md:text-2xl text-gray-300 h-12">
-      <span id="typing-text" class="font-mono"></span>
-    </h2>
+      <h2 class="text-xl md:text-2xl text-gray-300 h-12 mb-8">
+        <span id="typing-text" class="font-mono"></span><span class="text-green-400 animate-pulse">|</span>
+      </h2>
 
-    <div class="mt-8 flex flex-col sm:flex-row gap-4">
-      <a href="#projects" class="bg-gradient-to-r from-pink-500 to-red-400 px-6 py-3 rounded-xl text-white font-semibold shadow-md hover:opacity-90 transition">
-        View Work
-      </a>
-      <a href="resume.pdf" download class="border border-gray-600 px-6 py-3 rounded-xl text-gray-200 font-semibold hover:bg-gray-800 transition">
+      <!-- Centered Resume Button Only -->
+      <a href="Sriram Subramanian resume.pdf" download class="border border-gray-600 px-6 py-3 rounded-xl text-gray-200 font-semibold hover:bg-gray-800 transition">
         Download Resume
       </a>
+
+      <!-- Scroll Down Cue -->
+      <div class="mt-10 animate-bounce">
+        <a href="#projects" class="text-gray-400">↓ Scroll Down</a>
+      </div>
+    </div>
+  </section>
+
+  
+
+  <!-- About Me Section -->
+  <section id="about" class="min-h-screen snap-start flex flex-col justify-center items-center px-6 py-16 text-center text-white">
+    <div class="glass max-w-3xl">
+      <h2 class="text-3xl md:text-4xl font-bold mb-6">About Me</h2>
+      <p class="text-lg text-gray-300 leading-relaxed">
+        I'm Sriram Subramanian, currently a pre-final year Electrical Engineering student at NIT Warangal, with a minor in Computer Science. I'm passionate about Data Science, Machine Learning, and Artificial Intelligence. I love solving problems, building creative projects, and participating in hackathons. I've also taken leadership roles in student clubs, and enjoy contributing to communities.
+      </p>
+      <p class="mt-4 text-lg text-gray-300 leading-relaxed">
+        I'm also pursuing a BS degree in data science, offered by IIT Madras, where I've learnt a lot about foundation in modern application development, machine learning, and statistical analysis. The coursework, especially in Python programming and data visualization, has helped me develop analytical thinking and problem-solving skills.
+      <p class="mt-4 text-lg text-gray-300 leading-relaxed">
+        From competitive programming to front-end development, and from blockchain to predictive modeling, I enjoy combining technology and creativity to make meaningful things. Always learning, always curious.
+      </p>
+    </div>
+  </section>
+
+  <!-- Contact Me Section -->
+  <section id="contact" class="min-h-screen snap-start flex flex-col justify-center items-center px-6 py-16 text-center text-white">
+    <div class="glass max-w-3xl w-full">
+      <h2 class="text-3xl md:text-4xl font-bold mb-6 bg-gradient-to-r from-yellow-400 to-pink-500 text-transparent bg-clip-text">Contact Me</h2>
+      <form action="https://formsubmit.co/dudesriram78@gmail.com" method="POST" class="flex flex-col gap-4">
+        <input type="text" name="name" placeholder="Your Name" required class="bg-black bg-opacity-30 border border-gray-600 px-4 py-2 rounded-md text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-yellow-500">
+        <input type="email" name="email" placeholder="Your Email" required class="bg-black bg-opacity-30 border border-gray-600 px-4 py-2 rounded-md text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-yellow-500">
+        <textarea name="message" rows="5" placeholder="What would you like to talk about?" required class="bg-black bg-opacity-30 border border-gray-600 px-4 py-2 rounded-md text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-yellow-500"></textarea>
+        <button type="submit" class="bg-gradient-to-r from-yellow-400 to-pink-500 text-black font-semibold py-2 rounded-md hover:opacity-90 transition">Send Message</button>
+      </form>
     </div>
   </section>
 
   <!-- Typing Animation -->
   <script>
-    const roles = ["Data Science Entusiast", "ML/AI", "Creative Technologist"];
+    const roles = ["Data Science Enthusiast", "ML/AI", "Creative Technologist"];
     let current = 0;
     let letter = 0;
 
     function type() {
-      let text = roles[current];
+      const text = roles[current];
       document.getElementById("typing-text").textContent = text.slice(0, ++letter);
-
       if (letter === text.length) {
-        setTimeout(() => {
-          erase();
-        }, 1500);
+        setTimeout(erase, 1500);
       } else {
         setTimeout(type, 100);
       }
     }
 
     function erase() {
-      let text = roles[current];
+      const text = roles[current];
       document.getElementById("typing-text").textContent = text.slice(0, --letter);
-
       if (letter === 0) {
         current = (current + 1) % roles.length;
         setTimeout(type, 200);
@@ -76,26 +155,17 @@
     type();
   </script>
 
-  <!-- tsParticles with red strings -->
+  <!-- tsParticles Config -->
   <script>
     tsParticles.load("tsparticles", {
       fullScreen: { enable: false },
       background: { color: "#000000" },
       particles: {
-        number: {
-          value: 100,
-          density: { enable: true, area: 800 }
-        },
-        color: { value: "#ff2d75" },
+        number: { value: 100, density: { enable: true, area: 800 } },
+        color: { value: "#0fffff" },
         shape: { type: "circle" },
-        opacity: {
-          value: 0.4,
-          random: true
-        },
-        size: {
-          value: 5,
-          random: true
-        },
+        opacity: { value: 0.7, random: true },
+        size: { value: 9, random: true },
         move: {
           enable: true,
           speed: 1,
@@ -106,30 +176,30 @@
         links: {
           enable: true,
           distance: 120,
-          color: "#ff2d75",
-          opacity: 0.4,
-          width: 1
+          color: "#0fffff",
+          opacity: 0.9,
+          width: 2.0
         }
       },
       interactivity: {
         events: {
-          onHover: {
-            enable: true,
-            mode: "grab"
-          },
+          onHover: { enable: true, mode: "grab" },
           resize: true
         },
         modes: {
           grab: {
-            distance: 140,
+            distance: 300,
             links: {
-              opacity: 0.7
+              opacity: 0.7,
+              color: "#ff00ff"
             }
           }
         }
       },
       retina_detect: true
     });
+
+    
   </script>
 
 </body>
