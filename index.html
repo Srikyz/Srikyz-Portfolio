@@ -7,6 +7,8 @@
 
   <!-- Tailwind CSS -->
   <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Framer Motion -->
+  <script src="https://unpkg.com/framer-motion@11/dist/framer-motion.js"></script>
   <!-- tsParticles -->
   <script src="https://cdn.jsdelivr.net/npm/tsparticles@2/tsparticles.bundle.min.js"></script>
 
@@ -26,8 +28,26 @@
       backdrop-filter: blur(6px);
       -webkit-backdrop-filter: blur(6px);
       border-radius: 1rem;
-      padding: 2rem;
+      padding: 1.5rem;
       box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    }
+    
+    /* Enhanced responsive design */
+    @media (min-width: 768px) {
+      .glass {
+        padding: 2rem;
+      }
+    }
+    
+    @media (min-width: 1024px) {
+      .glass {
+        padding: 3rem;
+      }
+    }
+    
+    /* Animation classes for Framer Motion */
+    .motion-safe {
+      will-change: transform, opacity;
     }
   </style>
 </head>
@@ -37,25 +57,25 @@
   <div id="tsparticles" class="fixed top-0 left-0 w-full h-full -z-10"></div>
 
   <!-- Social Icons Top-Left -->
-  <div class="absolute top-6 left-6 z-10">
-    <div class="glass flex gap-4 p-3">
+  <div class="absolute top-4 left-4 sm:top-6 sm:left-6 z-10">
+    <div class="glass flex gap-2 sm:gap-4 p-2 sm:p-3">
       <a href="https://www.instagram.com/skrillrexz/" target="_blank" aria-label="Instagram">
-        <svg xmlns="http://www.w3.org/2000/svg" class="w-7 h-7 stroke-pink-500 hover:stroke-white transition" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 sm:w-7 sm:h-7 stroke-pink-500 hover:stroke-white transition" fill="none" viewBox="0 0 24 24" stroke="currentColor">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 2C4.79086 2 3 3.79086 3 6V18C3 20.2091 4.79086 22 7 22H17C19.2091 22 21 20.2091 21 18V6C21 3.79086 19.2091 2 17 2H7Z M16 11.37C16.03 13.2 14.66 14.89 12.84 15.06C11.01 15.24 9.34 13.87 9.15 12.04C8.97 10.21 10.34 8.54 12.17 8.35C13.99 8.17 15.67 9.54 15.86 11.37Z M17.5 6.5H17.51" />
         </svg>
       </a>
       <a href="https://x.com/Srikyz" target="_blank" aria-label="X">
-  <svg xmlns="http://www.w3.org/2000/svg" class="w-7 h-7 stroke-cyan-400 hover:stroke-white transition" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+  <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 sm:w-7 sm:h-7 stroke-cyan-400 hover:stroke-white transition" fill="none" viewBox="0 0 24 24" stroke="currentColor">
     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4l16 16M20 4L4 20" />
   </svg>
 </a>
       <a href="https://github.com/Srikyz" target="_blank" aria-label="GitHub">
-        <svg xmlns="http://www.w3.org/2000/svg" class="w-7 h-7 stroke-purple-400 hover:stroke-white transition" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 sm:w-7 sm:h-7 stroke-purple-400 hover:stroke-white transition" fill="none" viewBox="0 0 24 24" stroke="currentColor">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 1C5.925 1 1 5.925 1 12C1 17.075 4.875 21.175 9.75 22.5C10.25 22.575 10.425 22.275 10.425 22.025C10.425 21.8 10.425 21.125 10.425 20.3C7 20.875 6.25 18.925 6.25 18.925C5.75 17.775 5 17.5 5 17.5C4 16.875 5.075 16.875 5.075 16.875C6.175 16.95 6.75 18.025 6.75 18.025C7.75 19.725 9.4 19.25 10.075 18.95C10.15 18.2 10.5 17.75 10.9 17.475C8.05 17.2 5.075 16.175 5.075 11.55C5.075 10.275 5.55 9.275 6.35 8.5C6.225 8.2 5.825 6.925 6.475 5.25C6.475 5.25 7.4 4.95 10.425 6.55C11.325 6.3 12.3 6.175 13.275 6.175C14.25 6.175 15.225 6.3 16.125 6.55C19.15 4.95 20.075 5.25 20.075 5.25C20.725 6.925 20.325 8.2 20.2 8.5C21 9.275 21.475 10.275 21.475 11.55C21.475 16.2 18.5 17.2 15.65 17.475C16.175 17.85 16.65 18.7 16.65 20.05C16.65 21.875 16.65 23.125 16.65 23.55C16.65 23.8 16.825 24.125 17.325 24.05C22.2 22.75 26 17.075 26 12C26 5.925 21.075 1 15 1H12Z" />
         </svg>
       </a>
           <a href="https://www.linkedin.com/in/sriram-subramanian-621959301/" target="_blank" aria-label="LinkedIn">
-        <svg xmlns="http://www.w3.org/2000/svg" class="w-7 h-7 stroke-blue-400 hover:stroke-white transition" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 sm:w-7 sm:h-7 stroke-blue-400 hover:stroke-white transition" fill="none" viewBox="0 0 24 24" stroke="currentColor">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-4 0v7h-4v-7a6 6 0 016-6zM2 9h4v12H2zM4 4a2 2 0 110 4 2 2 0 010-4z" />
         </svg>
       </a>
@@ -63,36 +83,35 @@
   </div>
 
   <!-- Top-right nav or button -->
-  <div class="absolute top-6 right-6 z-10 flex gap-4">
-    <a href="#about" class="bg-gradient-to-r from-purple-500 to-indigo-400 px-4 py-2 rounded-md text-white font-semibold shadow-md hover:opacity-90 transition">
+  <div class="absolute top-4 right-4 sm:top-6 sm:right-6 z-10 flex flex-col sm:flex-row gap-2 sm:gap-4">
+    <a href="#about" class="bg-gradient-to-r from-purple-500 to-indigo-400 px-3 py-2 sm:px-4 sm:py-2 rounded-md text-white text-sm sm:text-base font-semibold shadow-md hover:opacity-90 transition text-center">
       About Me
     </a>
-    <a href="#contact" class="bg-gradient-to-r from-yellow-400 to-pink-500 px-4 py-2 rounded-md text-white font-semibold shadow-md hover:opacity-90 transition">
+    <a href="#contact" class="bg-gradient-to-r from-yellow-400 to-pink-500 px-3 py-2 sm:px-4 sm:py-2 rounded-md text-white text-sm sm:text-base font-semibold shadow-md hover:opacity-90 transition text-center">
       Contact Me
     </a>
   </div>
 
   <!-- Hero Section -->
-  <section class="min-h-screen snap-start flex flex-col justify-center items-center px-6 text-center">
-    <div class="glass">
-      <h1 class="text-4xl md:text-6xl font-bold mb-4 animate-fade-in">
+  <section class="min-h-screen snap-start flex flex-col justify-center items-center px-4 sm:px-6 text-center" data-motion="hero">
+    <div class="glass w-full max-w-4xl">
+      <h1 class="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-bold mb-4 animate-fade-in motion-safe" data-motion="title">
         Hi, I'm <span class="text-transparent bg-clip-text bg-gradient-to-r from-green-500 to-pink-400">Srikyz</span>
       </h1>
 
-      <h2 class="text-xl md:text-2xl text-gray-300 h-12 mb-8">
+      <h2 class="text-lg sm:text-xl md:text-2xl lg:text-3xl text-gray-300 h-10 sm:h-12 mb-6 sm:mb-8" data-motion="subtitle">
         <span id="typing-text" class="font-mono"></span><span class="text-green-400 animate-pulse">|</span>
       </h2>
 
       <!-- Centered Resume Button Only -->
       <a href="https://raw.githubusercontent.com/Srikyz/Srikyz-Portfolio/main/Public/Sriram%20Subramanian%20Resume.pdf" target="_blank"
-   class="border border-gray-600 px-6 py-3 rounded-xl text-gray-200 font-semibold hover:bg-gray-800 transition">
+   class="border border-gray-600 px-4 py-2 sm:px-6 sm:py-3 rounded-xl text-gray-200 text-sm sm:text-base font-semibold hover:bg-gray-800 transition inline-block" data-motion="button">
   Download Resume
 </a>
 
-
       <!-- Scroll Down Cue -->
-      <div class="mt-10 animate-bounce">
-        <a href="#projects" class="text-gray-400">↓ Scroll Down</a>
+      <div class="mt-8 sm:mt-10 animate-bounce" data-motion="scroll-cue">
+        <a href="#about" class="text-gray-400 text-sm sm:text-base">↓ Scroll Down</a>
       </div>
     </div>
   </section>
